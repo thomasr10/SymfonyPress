@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %}Catégories | SymfonyPress{% endblock %}
+
+{% block body %}
+<main>
+    <a href="{{path('app_home')}}" class="back-link">Retour</a>
+    <section class="articles-container">
+    <h1>Les articles de la catégoriew {{ category.name }}</h1>
+        {% for article in articles %}
+            {% include 'components/article-card.html.twig' with { article: article } %}
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}

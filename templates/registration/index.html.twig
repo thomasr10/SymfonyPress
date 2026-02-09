@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register | SymfonyPress{% endblock %}
+
+{% block body %}
+<main>
+    {{ form_start(registration_form) }}
+        {{ form_widget(registration_form) }}
+        <button type="submit">S'inscrire</button>
+    {{ form_end(registration_form) }}
+    <p class="register-link">Déjà inscrit(e) ?<a href="{{path('app_login')}}">Se connecter</a></p>
+</main>
+{% endblock %}

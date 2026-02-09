@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if article is not empty %}
+        {{article.title}} | SymfonyPress
+    {% else %}
+        Error
+    {% endif %}
+{% endblock %}
+{% block body %}
+<main>
+    <a href="{{path('app_home')}}" class="back-link">Retour</a>
+    {% if article is not empty %}
+        <div class="one-article-container">
+            <h2>{{article.title}}</h2>
+            <p>{{article.content}}</p>
+            {% if user_id and app.user and user_id == app.user.id %}
+            <div class="btn-container">
+                <a href="{{path('app_update_article', {id: article.id})}}" class="update-link">Modifier</a>
+                <a href="{{path('app_delete_article', { id: article.id })}}" class="delete-link">Supprimer</a>
+            </div>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="error-msg-container">
+            <p>Aucun article trouvé</p>
+        </div>
+    {% endif %}
+</main>
+{% endblock %}

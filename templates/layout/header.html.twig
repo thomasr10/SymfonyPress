@@ -1,0 +1,22 @@
+<header>
+    <nav>
+        <span>SymfonyPress</span>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="{{ path('app_category') }}">Catégories</a></li>
+
+            {% if app.user %}
+                <li><a href="{{ path('app_add_article') }}">Ajouter</a></li>
+                <li><a href="{{ path('app_article_user', { id: app.user.id }) }}">Mes articles</a></li>
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a href="{{ path('app_admin_article') }}">Administration</a></li>
+                {% endif %}
+
+                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+            {% else %}
+                <li><a href="{{ path('app_login') }}">Connexion</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
