@@ -17,6 +17,7 @@ Il met en place un système de gestion d’articles avec authentification des ut
 
 - Télécharger le projet : ```git clone https://github.com/thomasr10/SymfonyPress.git```
 - Installer les dépendances : ```composer install```
+- Modifier ```.env.example``` en ```.env``` et ajouter l'url de votre database
 - Créer la base de donnée : ```symfony console doctrine:database:create```
 - Effectuer la migration : ```symfony console doctrine:migrations:migrate```
 - Démarrer le server : ```symfony server:start``` 
